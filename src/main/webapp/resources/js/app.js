@@ -58,6 +58,15 @@ App.config(['$routeProvider', function($routeProvider) {
                	}]
             }
 		})
+		.when('/items/home', {
+        templateUrl: 'items/home',
+        controller : "ItemDetailsController as itemDetailsCtrl",
+        resolve: {
+            async: ['ItemService','$route', function(ItemService) {
+                return ItemService.fetchSpecificItemHome('item/home');
+            }]
+        }
+    })
 		
 		.otherwise({redirectTo:'/items/computers'});		
 }]);

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/items")
 public class MainTemplateController {
-	
+
     @RequestMapping(value="/computers")
     public String getComputersTemplate() {
     	return "template/item_computers";	
@@ -35,6 +35,21 @@ public class MainTemplateController {
     @RequestMapping(value="/printerdetails")
     public String getPrinterDetailsTemplate() {
     	return "template/item_printer_details";	
+    }
+
+    @RequestMapping(value="/home")
+    public String getPrinterHome() {
+        return "template/home";
+    }
+
+    @RequestMapping(value="/person_list")
+    public String getPrinterPersonHome() {
+        return "template/person/person_list";
+    }
+
+    @RequestMapping(value="/home2")
+    public String getPrinterPersonHome2() {
+        return "template/person/home2";
     }
 
 }

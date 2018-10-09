@@ -10,7 +10,7 @@ public class IndexController {//Serves main index.html
 
 	  	@RequestMapping(method = RequestMethod.GET)
 	    public String getIndexPage() {
-	        return "index";
+	        return "template/person/home";
 	    }
 	  
 	  	

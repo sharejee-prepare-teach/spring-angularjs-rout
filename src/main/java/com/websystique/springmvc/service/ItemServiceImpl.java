@@ -11,8 +11,10 @@ import com.websystique.springmvc.model.Computer;
 import com.websystique.springmvc.model.Phone;
 import com.websystique.springmvc.model.Printer;
 import com.websystique.springmvc.model.State;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("itemService")
+@Transactional
 public class ItemServiceImpl implements ItemService{
 	
 	private static final AtomicLong counter = new AtomicLong();
@@ -66,8 +68,13 @@ public class ItemServiceImpl implements ItemService{
 		}
 		return null;
 	}
-	
-	
+
+	@Override
+	public List<Computer> getComputers() {
+		return populateDummyComputers();
+	}
+
+
 	private static List<Computer> populateDummyComputers(){
 		List<Computer> computers = new ArrayList<Computer>();
 		

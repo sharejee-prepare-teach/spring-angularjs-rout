@@ -28,7 +28,19 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 									return $q.reject(errResponse);
 								}
 						);
-			}
+			},
+        	fetchSpecificItemHome: function() {
+            return $http.get('http://localhost:8080/Spring4MVCAngularJSRoutingExample/item/home')
+                .then(
+                    function(response){
+                        return response.data;
+                    },
+                    function(errResponse){
+                        console.error('Error while fetching specific Item');
+                        return $q.reject(errResponse);
+                    }
+                );
+        }
 	};
 
 }]);

@@ -78,5 +78,15 @@ public class ItemController {
         }
         return new ResponseEntity<Object>(item, HttpStatus.OK);
     }
+    @RequestMapping(value="/home")
+    public ResponseEntity<Object> findHome() {
+        System.out.println("*************************************findHome");
+        Object item = 	itemService.getComputers();
+        if(item == null){
+            return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<Object>(item, HttpStatus.OK);
+    }
+
 
 }
